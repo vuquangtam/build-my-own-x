@@ -1,0 +1,56 @@
+#+title: Build My Own Sass Library
+
+* Introduction
+** What is Sass?
+Sass was designed by Hampton Catlin and developed by Natalie Weizenbaum in 2006
+Sass stands for Syntactically Awesome Stylesheet
+Sass is an extension to CSS
+Sass is a CSS pre-processor
+Sass is completely compatible with all versions of CSS
+Sass reduces repetition of CSS and therefore saves time
+Sass is free to download and use
+** Why is Sass?
+Stylesheets are getting larger, more complex, and harder to maintain. This is where a CSS pre-processor can help.
+Sass lets you use features that do not exist in CSS, like variables, nested rules, mixins, imports, inheritance, built-in functions, and other stuff.
+* Project structure
+#+begin_src text
+.
+|-- _base.scss
+|-- _breakpoints.scss
+|-- _colors.scss
+|-- components
+|   |-- _badge.scss
+|   |-- _button.scss
+|   |-- _card.scss
+|   `-- _navbar.scss
+|-- _functions.scss
+|-- _grid.scss
+|-- index.scss
+|-- _utilities.scss
+`-- _variables.scss
+#+end_src
+* Variables
+#+BEGIN_SRC scss
+$primary: #326dee !default;
+$secondary: #1ac886 !default;
+$error: #d32752 !default;
+$info: #f6c31c !default;
+#+END_SRC
+* Partials & @import
+* Nested Rules
+* Sass Module
+* Maps
+* Loops
+* Conditionals (@if)
+* Parent Selectors
+* Mixins & @include
+* Functions
+* Making Utility Classes
+* Media Queries
+* Extend
+* Grid system
+* Customize library (!default keyword)
+* Resources
+- https://sass-lang.com/guide
+- https://www.w3schools.com/sass
+- https://www.youtube.com/playlist?list=PL4cUxeGkcC9jxJX7vojNVK-o8ubDZEcNb
