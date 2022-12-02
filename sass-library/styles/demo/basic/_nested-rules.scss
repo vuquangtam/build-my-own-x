@@ -1,0 +1,27 @@
+nav {
+    background: blue;
+
+    + p {
+        color: black;
+    }
+
+    ~ p {
+        color: black;
+    }
+
+    p {
+        color: black;
+    }
+
+    &:hover {
+        color: black;
+    }
+
+    :not(&) {
+        color: black;
+    }
+
+    &__active {
+        color: blue;
+    }
+}

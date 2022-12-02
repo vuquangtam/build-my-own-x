@@ -1,0 +1,14 @@
+@use "child-module";
+// @use "partial";
+
+@debug "Using use keyword";
+@debug child-module.$inside-module;
+
+@import "child-module";
+@import "partial";
+
+@debug "Using import keyword";
+@debug $inside-module;
+@debug $inside-partial;
+
+@import "variables";

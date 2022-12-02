@@ -1,0 +1,22 @@
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+
+  &--serious {
+    @extend .error;
+    border-width: 3px;
+  }
+}
+
+.parent-class {
+  background: blue;
+}
+
+%parent-placeholder {
+  color: black;
+}
+
+.child-class {
+  @extend .parent-class;
+  @extend %parent-placeholder;
+}

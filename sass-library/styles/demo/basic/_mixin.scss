@@ -1,0 +1,27 @@
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: white;
+    color: black;
+  } @else {
+    background-color: black;
+    color: white;
+  }
+}
+
+.light-theme {
+    @include theme-colors;
+}
+
+.light-theme {
+    @include theme-colors(false);
+}
+
+@mixin useless-mixin {
+    @content;
+}
+
+.useless-class {
+    @include useless-mixin {
+        background: blue;
+    }
+}

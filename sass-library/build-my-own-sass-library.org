@@ -1,5 +1,21 @@
 #+title: Build My Own Sass Library
 
+* 7 ways to deal with styling
+- Vanilla css
+- Module css
+- Preprocessor
+  + Sass
+  + Less
+  + Stylus
+- CSS-in-JS
+- Utility classes CSS
+  + Tailwind
+- Css framework
+  + Bootstrap
+  + Bulma
+- Component library
+  + React (angular, vue,...) bootstrap
+  + React (angular, vue,...) bulma
 * Introduction
 ** What is Sass?
 Sass was designed by Hampton Catlin and developed by Natalie Weizenbaum in 2006
@@ -12,6 +28,176 @@ Sass is free to download and use
 ** Why is Sass?
 Stylesheets are getting larger, more complex, and harder to maintain. This is where a CSS pre-processor can help.
 Sass lets you use features that do not exist in CSS, like variables, nested rules, mixins, imports, inheritance, built-in functions, and other stuff.
+* Nested Rules
+#+begin_src scss
+.parent-class {
+    > .child-class {
+    }
+
+    + .child-class {
+    }
+
+    ~ .child-class {
+    }
+
+    .child-descendents {
+    }
+
+    // parent selector
+    &:hover {
+    }
+
+    :not(&) {
+    }
+
+    // adding suffix
+    &__active {
+    }
+}
+#+end_src
+* Variables
+#+BEGIN_SRC scss
+$primary: #326dee !default;
+$secondary: #1ac886 !default;
+$error: #d32752 !default;
+$info: #f6c31c !default;
+#+END_SRC
+* Lists - Maps
+#+begin_src scss
+$list: 1,2,3,4,5;
+
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "error": $error,
+  "info": $info,
+  "blue": #1919e6,
+  "red": #e61919,
+  "yellow": #e6e619,
+  "green": #19e635,
+  "orange": #ffa600,
+  "purple": #9900ff,
+  "gray": #808080,
+  "black": black,
+  "white": white,
+) !default;
+#+end_src
+* Loops
+#+begin_src scss
+@each $val in $list {
+}
+
+@each $key, $val in $map {
+}
+
+@for $i from 0 through 10 {
+}
+#+end_src
+* Conditionals (@if)
+#+begin_src scss
+@if (condition) {
+
+} @else if (condition) {
+
+} @else {
+
+}
+#+end_src
+* Mixins & @include
+#+begin_src scss
+@mixin name {
+  property: value;
+  property: value;
+  ...
+}
+
+@mixin name($parameter-a: default-value) {
+  property: value;
+  property: value;
+  ...
+}
+
+.class-a {
+  @include name;
+  @include name(argument-a);
+}
+#+end_src
+** @content
+#+begin_src scss
+@mixin name {
+  @content
+}
+
+.class-a {
+    @include name {
+        content here will embed in mixin
+    }
+}
+#+end_src
+* Inheritance with @extend
+#+begin_src scss
+.parent-class {
+  background: blue;
+}
+
+%parent-placeholder {
+  color: black;
+}
+
+.child-class {
+  @extend .parent-class;
+  @extend %parent-placeholder;
+}
+#+end_src
+* Functions
+#+begin_src scss
+@function func-name($parameter: default-value) {
+  @return result;
+}
+#+end_src
+* Partials & @import & Module & @use
+** Sass import
+Syntax
+#+begin_src scss
+@import filename;
+
+For example:
+@import "variables";
+@import "colors";
+@import "reset";
+#+end_src
+** Sass partials
+By default, Sass transpiles all the .scss files directly. However, when you want to import a file, you do not need the file to be transpiled directly.
+
+Sass has a mechanism for this: If you start the filename with an underscore, Sass will not transpile it. Files named this way are called partials in Sass.
+
+So, a partial Sass file is named with a leading underscore:
+
+#+begin_src scss
+ _filename;
+
+For Example:
+_colors.scss
+_variables.scss
+#+end_src
+** Sass use
+Syntax
+#+begin_src scss
+@use filename;
+
+For example:
+@use "variables";
+@use "colors";
+@use "reset";
+#+end_src
+** @import vs @use
+The new @use is similar to @import. but has some notable differences:
+
+The file is only imported once, no matter how many times you @use it in a project.
+Variables, mixins, and functions (what Sass calls "members") that start with an underscore (_) or hyphen (-) are considered private, and not imported.
+All imported members are namespaced by default.
+* Sass Built-in Module
+https://sass-lang.com/documentation/modules
 * Project structure
 #+begin_src text
 .
@@ -29,28 +215,11 @@ Sass lets you use features that do not exist in CSS, like variables, nested rule
 |-- _utilities.scss
 `-- _variables.scss
 #+end_src
-* Variables
-#+BEGIN_SRC scss
-$primary: #326dee !default;
-$secondary: #1ac886 !default;
-$error: #d32752 !default;
-$info: #f6c31c !default;
-#+END_SRC
-* Partials & @import
-* Nested Rules
-* Sass Module
-* Maps
-* Loops
-* Conditionals (@if)
-* Parent Selectors
-* Mixins & @include
-* Functions
 * Making Utility Classes
 * Media Queries
-* Extend
 * Grid system
-* Customize library (!default keyword)
 * Resources
 - https://sass-lang.com/guide
 - https://www.w3schools.com/sass
 - https://www.youtube.com/playlist?list=PL4cUxeGkcC9jxJX7vojNVK-o8ubDZEcNb
+* Thank you

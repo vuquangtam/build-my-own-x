@@ -1,0 +1,37 @@
+$list: a,b,c,d,e;
+$map: (
+   lorem: one,
+   ipsum: two
+);
+
+@each $val in $list {
+    @debug $val;
+}
+
+@each $key, $val in $map {
+    @debug $key, $val;
+
+    @if ($key == lorem) {
+       @debug "IF HERE"
+    }
+}
+
+@for $i from 1 through 3 {
+    @debug $i;
+}
+
+// @import "variables";
+
+// @each $key, $val in $colors {
+//     .text-#{$key} {
+//         color: $val;
+//     }
+//     .text-hover-#{$key} {
+//         &:hover {
+//             color: $val;
+//         }
+//     }
+//     .bg-#{$key} {
+//         background-color: $val;
+//     }
+// }

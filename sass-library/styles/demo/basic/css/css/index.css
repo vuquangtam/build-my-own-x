@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/* Error: Undefined variable.
+ *   ,
+ * 5 | @debug $inside-partial;
+ *   |        ^^^^^^^^^^^^^^^
+ *   '
+ *   index.scss 5:8  root stylesheet */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a   ╷\a 5 │ @debug $inside-partial;\a   │        ^^^^^^^^^^^^^^^\a   ╵\a   index.scss 5:8  root stylesheet";
+}
+
+/*# sourceMappingURL=index.css.map */
